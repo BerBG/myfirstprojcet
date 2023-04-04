@@ -1,6 +1,5 @@
 package com.BerBG.myfirstproject.resources;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +27,7 @@ public class ProductResource {
 
 		@GetMapping(value = "/{id}")
 		public ResponseEntity<Product> findById(@PathVariable Long id) {
-			Product cat = categoryRepository.findById(id);
+			Product cat = categoryRepository.findById(id).get();
 			return ResponseEntity.ok().body(cat);
 	} 
 }
